@@ -13,6 +13,10 @@
   <img src="https://img.shields.io/badge/ROC--AUC-0.845-success" alt="ROC-AUC 0.845">
 </p>
 
+<p align="center">
+  📓 <a href="Churn_Analysis.ipynb"><b>View the notebook</b></a>
+</p>
+
 ---
 
 ## ⚡ TL;DR
@@ -28,24 +32,17 @@
 
 ## 🔍 What the data shows
 
-<table>
-  <tr>
-    <td width="50%" valign="top">
-
-**Contract type is the strongest signal**
+**Contract type is the strongest signal:**
 
 | Contract | Churn rate |
-|---|---|
+|---|:---:|
 | Month-to-month | **42.7%** |
 | One year | 11.3% |
 | Two year | 2.8% |
 
-    </td>
-    <td width="50%" align="center">
-      <img src="images/churn_by_contract.png" alt="Churn rate by contract type" width="95%">
-    </td>
-  </tr>
-</table>
+<p align="center">
+  <img src="churn_by_contract.png" alt="Churn rate by contract type" width="60%">
+</p>
 
 - ⏳ **New customers leave more:** churned customers had an average tenure of **18 months**, versus **37.6 months** for customers who stayed.
 - 📡 **Fiber optic customers churn more:** 41.9%, compared to 19.0% for DSL and 7.4% for customers with no internet service.
@@ -66,9 +63,9 @@
 > Only 27% of customers churn, so accuracy alone is misleading. A model that says "nobody churns" would already get about 73% accuracy. That's why I focus on **recall** (how many churners we catch), **precision**, **F1** and **ROC-AUC**.
 
 <p align="center">
-  <img src="images/roc_curves.png" alt="ROC curves" width="45%">
+  <img src="roc_curves.png" alt="ROC curves" width="45%">
   &nbsp;
-  <img src="images/confusion_matrix.png" alt="Confusion matrix" width="45%">
+  <img src="confusion_matrix.png" alt="Confusion matrix" width="45%">
 </p>
 
 The tuned model correctly finds **296 of the 374 churners** in the test set, at the cost of 265 false alarms.
@@ -82,7 +79,7 @@ The first Random Forest memorised the training data: **train AUC 0.97 vs test AU
 ## 🌟 What drives churn?
 
 <p align="center">
-  <img src="images/feature_importance.png" alt="Top 10 most important features" width="70%">
+  <img src="feature_importance.png" alt="Top 10 most important features" width="70%">
 </p>
 
 The top features are **tenure**, **TotalCharges**, **Contract_Two year** and **fiber optic internet**. This matches what I found during exploration. (Random Forest importance can favour numeric columns, so I treat this as a rough guide, not exact numbers.)
@@ -121,7 +118,7 @@ The top features are **tenure**, **TotalCharges**, **Contract_Two year** and **f
    ```bash
    pip install pandas numpy matplotlib seaborn scikit-learn jupyter
    ```
-3. Start Jupyter and open the `.ipynb` notebook:
+3. Start Jupyter and open `Churn_Analysis.ipynb`:
    ```bash
    jupyter notebook
    ```
